@@ -1,7 +1,8 @@
 package Q1;
 
 /**
- * Created by David on 1/21/2017.
+ * This class represents a information about a climb.
+ * Usable methods: Constructor, getName(), getTime().
  */
 public class ClimbInfo {
     private String peakName;

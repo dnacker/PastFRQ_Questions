@@ -1,7 +1,8 @@
 package Q4;
 
 /**
- * Created by David on 1/21/2017.
+ * Question 4.
+ * TODO implement countWhitePixels and processImage.
  */
 public class GrayImage {
     public static final int BLACK = 0;
@@ -16,15 +17,8 @@ public class GrayImage {
      * Postcondition: this image has not been changed.
      */
     public int countWhitePixels() {
-        int count = 0;
-        for (int[] rowArray: pixelValues) {
-            for (int val: rowArray) {
-                if (val == WHITE) {
-                    count++;
-                }
-            }
-        }
-        return count;
+        //your code for part (a)
+        return 0;
     }
 
     /** Processes this image in row-major order and decreases the value of each pixel at
@@ -33,13 +27,10 @@ public class GrayImage {
      * Pixels for which there is no pixel at position (row + 2, col + 2) are unchanged.
      */
     public void processImage() {
-        for (int row = 0; row < pixelValues.length - 2; row++) {
-            for (int col = 0; col < pixelValues[0].length - 2; col++) {
-                pixelValues[row][col] = Math.max(BLACK, pixelValues[row][col] - pixelValues[row + 2][col + 2]);
-            }
-        }
+        //your code for part (b)
     }
 
+    //IGNORE CODE BELOW (for testing purposes)
     public GrayImage(int[][] pixels) {
         pixelValues = pixels;
     }

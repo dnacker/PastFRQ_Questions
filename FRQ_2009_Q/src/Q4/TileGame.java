@@ -26,7 +26,7 @@ public class TileGame {
      * otherwise, 0 ≤ position returned ≤ board.size()
      */
     public int getIndexForFit(NumberTile tile) {
-        /** to be implemented in part (a) */
+        /* to be implemented in part(a) */
         return 0;
     }
 
@@ -40,8 +40,8 @@ public class TileGame {
      * Postcondition: the order of the other tiles on the board relative to each other is not changed
      */
     public boolean insertTile(NumberTile tile) {
-        /** to be implemented in part (b) */
-        return true;
+        /* to be implemented in part (b) */
+        return false;
     }
 
     //IGNORE CODE BELOW (for testing purposes)

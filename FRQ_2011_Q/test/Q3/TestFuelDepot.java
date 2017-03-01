@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by daackerman on 1/23/2017.
+ * Tests for question 3.
  */
 public class TestFuelDepot {
     private FuelDepot depot;

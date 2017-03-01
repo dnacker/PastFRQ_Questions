@@ -3,7 +3,7 @@ package Q1;
 import java.util.Arrays;
 
 /**
- * Created by David on 1/21/2017.
+ * Question 1.
  */
 public class Sound {
     /** the array of values in this sound; guaranteed not to be null */
@@ -21,18 +21,8 @@ public class Sound {
      * @return the number of values in this sound that this method changed
      */
     public int limitAmplitude(int limit) {
-        int count = 0;
-        for (int i = 0; i < samples.length; i++) {
-            if (samples[i] > limit) {
-                count++;
-                samples[i] = limit;
-            }
-            if (samples[i] < -limit) {
-                count++;
-                samples[i] = -limit;
-            }
-        }
-        return count;
+        //your code for part (a)
+        return 0;
     }
 
     /** Removes all silence from the beginning of this sound.
@@ -41,17 +31,7 @@ public class Sound {
      * Postcondition: the length of samples reflects the removal of starting silence
      */
     public void trimSilenceFromBeginning() {
-        int countZeros = 0;
-        int index = 0;
-        while (index < samples.length && samples[index] == 0) {
-            countZeros++;
-            index++;
-        }
-        int[] newSamples = new int[samples.length - countZeros];
-        for (int i = 0; i < newSamples.length; i++) {
-            newSamples[i] = samples[countZeros + i];
-        }
-        samples = newSamples;
+        //your code for part (b)
     }
 
     public String toString() {

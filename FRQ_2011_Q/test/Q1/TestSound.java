@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Created by daackerman on 1/23/2017.
+ * Tests for question 1.
  */
 public class TestSound {
     private Sound test1;

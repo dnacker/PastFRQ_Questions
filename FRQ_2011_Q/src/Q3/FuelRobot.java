@@ -1,7 +1,7 @@
 package Q3;
 
 /**
- * Created by David on 1/21/2017.
+ * Interface for FuelRobot.
  */
 public interface FuelRobot {
     /** @return the index of the current location of the robot */

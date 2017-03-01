@@ -1,6 +1,7 @@
 package Q3;
 
 /**
+ * IGNORE THIS CLASS.
  * Implementation of FuelRobot interface.
  */
 public class Robot implements FuelRobot{

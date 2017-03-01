@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by David on 1/21/2017.
+ * Question 3.
  */
 public class FuelDepot {
     /** The robot used to move the filling mechanism */
@@ -20,18 +20,11 @@ public class FuelDepot {
     /**Determines and returns the index of the next tank to be filled.
      * @param threshold fuel tanks with a fuel level <= threshold may be filled.
      * @return index of the next tank to fill.
+     * Postcondition: the state of the robot is not changed.
      */
     public int nextTankToFill(int threshold) {
-        int index = filler.getCurrentIndex();
-        int smallest = threshold;
-        for (int i = 0; i < tanks.size(); i++) {
-            int currentTankLevel = tanks.get(i).getFuelLevel();
-            if (currentTankLevel < smallest) {
-                smallest = currentTankLevel;
-                index = i;
-            }
-        }
-        return index;
+        //your code for part (a)
+        return 0;
     }
 
     /**
@@ -41,15 +34,7 @@ public class FuelDepot {
      *                 Postcondition: the current location of the robot is locIndex.
      */
     public void moveToLocation(int locIndex) {
-        int numMoves = locIndex - filler.getCurrentIndex();
-        if (numMoves != 0) {
-            if (numMoves > 0 && !filler.isFacingRight()) {
-                filler.changeDirection();
-            } else if (numMoves < 0 && filler.isFacingRight()) {
-                filler.changeDirection();
-            }
-            filler.moveForward(Math.abs(numMoves));
-        }
+        //your code for part (b)
     }
 
     public String toString() {

@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by david on 1/23/2017.
+ * Tests for Question 1.
  */
 public class TestMusicDownloads {
     private MusicDownloads webMusic;

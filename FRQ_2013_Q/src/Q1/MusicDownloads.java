@@ -5,8 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * MusicDownloads Class.
- * Write solutions here.
+ * Question 1
  */
 public class MusicDownloads {
     /** The list of downloaded information.
@@ -28,12 +27,7 @@ public class MusicDownloads {
      * - no changes were made to downloadList.
      */
     public DownloadInfo getDownLoadInfo(String title) {
-        for (DownloadInfo dl : downloadList) {
-            if (dl.getTitle().equals(title)) {
-                return dl;
-            }
-        }
-        return null;
+        /* to be implemented in part (a) */
     }
 
     /** Updates downloadList with information from titles.
@@ -53,13 +47,7 @@ public class MusicDownloads {
      * the number of times its title appeared in titles.
      */
     public void updateDownloads(List<String> titles) {
-        for (String title : titles) {
-            if (getDownLoadInfo(title) == null) {
-                downloadList.add(new DownloadInfo(title));
-            } else {
-                getDownLoadInfo(title).incrementTimesDownloaded();
-            }
-        }
+        /* to be implemented in part (b) */
     }
 
     public String toString() {

@@ -3,7 +3,7 @@ package Q2;
 import java.util.Arrays;
 
 /**
- * Created by David on 1/21/2017.
+ * Question 2.
  */
 public class TokenPass {
     private int[] board;
@@ -15,11 +15,7 @@ public class TokenPass {
      * @param playerCount the number of players
      */
     public TokenPass(int playerCount) {
-        board = new int[playerCount];
-        for (int i = 0; i < playerCount; i++) {
-            board[i] = (int)(Math.random() * 10) + 1;
-        }
-        currentPlayer = (int)(Math.random() * playerCount);
+        /* to be implemented in part (a) */
     }
 
     /** Distributes the tokens from the current player's position one at a time to each player in
@@ -30,22 +26,7 @@ public class TokenPass {
      * Postcondition: the current player has not changed.
      */
     public void distributeCurrentPlayerTokens() {
-        int tokensToDistribute = board[currentPlayer];
-        board[currentPlayer] = 0;
-        int index;
-        if (currentPlayer == board.length - 1) {
-            index = 0;
-        } else {
-            index = currentPlayer + 1;
-        }
-        for (int i = 0; i < tokensToDistribute; i++) {
-            board[index]++;
-            if (index == board.length - 1) {
-                index = 0;
-            } else {
-                index++;
-            }
-        }
+        /* to be implemented in part (b) */
     }
 
     /** IGNORE CODE BELOW (for testing purposes) */

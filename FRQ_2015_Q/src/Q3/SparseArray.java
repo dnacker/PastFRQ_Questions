@@ -33,31 +33,13 @@ public class SparseArray {
      *               0  col < getNumCols()
      */
     public int getValueAt(int row, int col) {
-        for (SparseArrayEntry entry : entries) {
-            if (entry.getRow() == row && entry.getCol() == col) {
-                return entry.getValue();
-            }
-        }
         return 0;
     }
     /** Removes the column col from the sparse array.
      * Precondition: 0  col < getNumCols()
      */
     public void removeColumn(int col) {
-        int times = entries.size();
-        int index = 0;
-        for (int i = 0; i < times; i++) {
-            SparseArrayEntry entry = entries.get(index);
-            if (entry.getCol() == col) {
-                entries.remove(index);
-            } else if (entry.getCol() > col) {
-                entries.remove(index);
-                entries.add(new SparseArrayEntry(entry.getRow(), entry.getCol() - 1, entry.getValue()));
-            } else {
-                index++;
-            }
-        }
-        numCols--;
+
     }
 
     /** IGNORE CODE BELOW (for testing purposes) */

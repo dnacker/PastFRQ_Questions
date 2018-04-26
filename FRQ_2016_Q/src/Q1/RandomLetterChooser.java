@@ -4,8 +4,6 @@ package Q1;
  * Question 1
  */
 public class RandomLetterChooser extends RandomStringChooser {
-    private String word;
-
     /** Constructs a random letter chooser using the given string str.
      *  Precondition: str contains only letters.
      */

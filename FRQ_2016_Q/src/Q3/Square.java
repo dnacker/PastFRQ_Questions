@@ -1,7 +1,7 @@
 package Q3;
 
 /**
- *
+ * Question 3
  */
 public class Square {
     /** Constructs one square of a crossword puzzle grid.

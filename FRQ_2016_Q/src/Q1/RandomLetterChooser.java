@@ -1,7 +1,7 @@
 package Q1;
 
 /**
- * Created by daackerman on 1/24/2017.
+ * Question 1
  */
 public class RandomLetterChooser extends RandomStringChooser {
     private String word;
@@ -10,7 +10,7 @@ public class RandomLetterChooser extends RandomStringChooser {
      *  Precondition: str contains only letters.
      */
     public RandomLetterChooser(String str) {
-        super(getSingleLetters(str));
+        /* to be implemented in part (b) */
     }
 
     /** Returns an array of single-letter strings.

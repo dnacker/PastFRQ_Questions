@@ -1,12 +1,13 @@
 package Q1;
 
 /**
- * Created by daackerman on 1/24/2017.
+ * Question 1
  */
 public class ArraySum {
     /** Returns the sum of the entries in the one-dimensional array arr.
      */
     public static int arraySum(int[] arr) {
+		/* to be implemented in part (a) */
         return 0;
     }
 
@@ -14,6 +15,7 @@ public class ArraySum {
      * the entries of row k of the two-dimensional array arr2D.
      */
     public static int[] rowSums(int[][] arr2D) {
+		/* to be implemented in part (b) */
         return null;
     }
 
@@ -21,6 +23,7 @@ public class ArraySum {
      * false otherwise.
      */
     public static boolean isDiverse(int[][] arr2D) {
+		/* to be implemented in part (c) */
         return false;
     }
 }

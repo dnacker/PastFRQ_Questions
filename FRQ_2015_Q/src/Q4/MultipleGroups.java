@@ -16,4 +16,12 @@ public class MultipleGroups implements NumberGroup {
      * false otherwise.
      */
     //Method for contains here.
+    public boolean contains(int num) {
+        for (NumberGroup g : groupList) {
+            if (g.contains(num)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -3,7 +3,7 @@ package Q4;
 import java.util.List;
 
 /**
- *
+ * Question 4
  */
 public class MultipleGroups implements NumberGroup {
     private List<NumberGroup> groupList;
@@ -15,13 +15,8 @@ public class MultipleGroups implements NumberGroup {
     /** Returns true if at least one of the number groups in this multiple group contains num;
      * false otherwise.
      */
-    //Method for contains here.
     public boolean contains(int num) {
-        for (NumberGroup g : groupList) {
-            if (g.contains(num)) {
-                return true;
-            }
-        }
+        /* to be implemented in part(c) */
         return false;
     }
 }

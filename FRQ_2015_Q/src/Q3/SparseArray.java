@@ -33,13 +33,14 @@ public class SparseArray {
      *               0  col < getNumCols()
      */
     public int getValueAt(int row, int col) {
+		/* to be implemented in part (a) */
         return 0;
     }
     /** Removes the column col from the sparse array.
      * Precondition: 0  col < getNumCols()
      */
     public void removeColumn(int col) {
-
+		/* to be implemented in part (b) */
     }
 
     /** IGNORE CODE BELOW (for testing purposes) */

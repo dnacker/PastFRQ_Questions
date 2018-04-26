@@ -1,8 +1,8 @@
 package Q2;
 
 /**
- * Write this class.
+ * Question 2
  */
 public class HiddenWord {
-
+    /* to be implemented in part (a) */
 }

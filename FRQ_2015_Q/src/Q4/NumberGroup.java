@@ -1,8 +1,8 @@
 package Q4;
 
 /**
- * Write this interface
+ * Question 4
  */
 public interface NumberGroup {
-    boolean contains(int num);
+    /* to be implemented in part (a) */
 }

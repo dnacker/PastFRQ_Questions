@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by David on 1/21/2017.
+ * Question 3
  */
 public class SeatingChart {
     /** seats[r][c] represents the Student in row r and column c in the classroom. */
@@ -25,16 +25,7 @@ public class SeatingChart {
      * - studentList is unchanged.
      */
     public SeatingChart(List<Student> studentList, int rows, int cols) {
-        seats = new Student[rows][cols];
-        int index = 0;
-        for (int col = 0; col < cols; col++) {
-            for (int row = 0; row < rows; row++) {
-                if (index < studentList.size()) {
-                    seats[row][col] = studentList.get(index);
-                    index++;
-                }
-            }
-        }
+        /* to be implemented in part (a) */
     }
 
     /** Removes students who have more than a given number of absences from the
@@ -48,17 +39,8 @@ public class SeatingChart {
      * - Entries without students contain null.
      */
     public int removeAbsentStudents(int allowedAbsences) {
-        int count = 0;
-        for(int row = 0; row < seats.length; row++) {
-            for (int col = 0; col < seats.length; col++) {
-                Student s = seats[row][col];
-                if (s != null && s.getAbsenceCount() > allowedAbsences) {
-                    seats[row][col] = null;
-                    count++;
-                }
-            }
-        }
-        return count;
+        /* to be implemented in part (b) */
+        return 0;
     }
 
     /** IGNORE CODE BELOW (for testing purposes) */
@@ -69,7 +51,7 @@ public class SeatingChart {
         }
         return result;
     }
-
+	/*
     public static void main(String[] args) {
         List<Student> students = new ArrayList<Student>();
         students.add(new Student("Karen", 3));
@@ -88,4 +70,5 @@ public class SeatingChart {
         chart.removeAbsentStudents(4);
         System.out.println(chart);
     }
+	*/
 }

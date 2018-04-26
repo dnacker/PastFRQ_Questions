@@ -1,29 +1,12 @@
 package Q4;
 
 /**
- * Write this class.
+ * Question 4
  */
-public class Trio implements MenuItem {
-    private Sandwich sandwich;
-    private Salad salad;
-    private Drink drink;
+public class Trio {
+    /* to be implemented in part (a) */
 
-    public Trio(Sandwich s, Salad sal, Drink d) {
-        sandwich = s;
-        salad = sal;
-        drink = d;
-    }
-
-    public String getName() {
-        return sandwich.getName() + "/" + salad.getName() + "/" + drink.getName() + " Trio";
-    }
-
-    public double getPrice() {
-        double min = Math.min(sandwich.getPrice(), Math.min(salad.getPrice(), drink.getPrice()));
-        return sandwich.getPrice() + salad.getPrice() + drink.getPrice() - min;
-    }
-
-
+	/*
     public static void main(String[] args) {
         Sandwich sand1= new Sandwich("Cheeseburger", 2.75);
         Salad salad1 = new Salad("Spinach Salad", 1.25);
@@ -42,5 +25,5 @@ public class Trio implements MenuItem {
         System.out.println(trio2.getName());
         System.out.println(trio2.getPrice());
     }
-
+	*/
 }

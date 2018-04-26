@@ -1,7 +1,7 @@
 package Q3;
 
 /**
- * Created by David on 1/21/2017.
+ * Question 3
  */
 public class Student {
     private String name;

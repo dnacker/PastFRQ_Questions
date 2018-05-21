@@ -22,24 +22,33 @@ public class ArrayTester {
      *  Postcondition: arr1 and arr2 are unchanged.
      */
     public static boolean hasAllValues(int[] arr1, int[] arr2) {
-        HashSet<Integer> setOne = new HashSet<>();
-        HashSet<Integer> setTwo = new HashSet<>();
-        for (int i = 0; i < arr1.length; i++) {
-            setOne.add(arr1[i]);
-            setTwo.add(arr2[i]);
+        for (int num1 : arr1) {
+            for (int num2 : arr2) {
+                boolean found = false;
+                if (num1 == num2) {
+                    found = true;
+                }
+                if (!found) {
+                    return false;
+                }
+            }
         }
-        return setOne.containsAll(setTwo);
+        return true;
     }
 
     /** Returns true if arr contains any duplicate values;
      *          false otherwise.
      */
     public static boolean containsDuplicates(int[] arr) {
-        HashSet<Integer> set = new HashSet<>();
-        for (int num: arr) {
-            set.add(num);
+        for (int i = 0; i < arr.length; i++) {
+            boolean dup = false;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    return true;
+                }
+            }
         }
-        return set.size() < arr.length;
+        return false;
     }
 
     /** Returns true if square is a Latin square as described in part (b);

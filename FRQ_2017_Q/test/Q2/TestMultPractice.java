@@ -7,7 +7,7 @@ import org.junit.Test;
  * Tests for Question 2.
  */
 public class TestMultPractice {
-
+    /* Uncomment these tests when you are done with Question 2.
     @Test
     public void testConstructor() {
         MultPractice practice = new MultPractice(1, 1);
@@ -44,4 +44,5 @@ public class TestMultPractice {
         practice.nextProblem();
         Assert.assertEquals("4 TIMES 10", practice.getProblem());
     }
+     */
 }

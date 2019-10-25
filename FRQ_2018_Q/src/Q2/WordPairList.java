@@ -23,4 +23,8 @@ public class WordPairList {
         return 0;
     }
 
+    /** IGNORE THIS CODE (for testing purposes) */
+    ArrayList<WordPair> getList() {
+        return allPairs;
+    }
 }

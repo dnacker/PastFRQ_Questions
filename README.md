@@ -1,6 +1,6 @@
 # PastFRQ_Questions
 
-1. Download files as .zip
+1. Download files as .zip or clone the repository
 2. Extract files
 3. Use your favorite IDE to import a Year as a new Project.
   If using IntelliJ:

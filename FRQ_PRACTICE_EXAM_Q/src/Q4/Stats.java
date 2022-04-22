@@ -2,74 +2,36 @@ package Q4;
 
 import java.util.ArrayList;
 
-/**
- * Created by David on 1/22/2017.
- */
 public class Stats {
-    private ArrayList<ScoreInfo> scoreList;
+    private ArrayList<ScoreInfo> scoreList = new ArrayList<>();
+    // listed in increasing score order; no two ScoreInfo objects contain the same score
 
-    public Stats() {
-        scoreList = new ArrayList<ScoreInfo>();
-    }
-
+    /** Records a score in the database, keeping the database in increasing score order. If no other
+     * 	ScoreInfo object represents score, a new ScoreInfo object representing score
+     * 	is added to the database; otherwise, the frequency in the ScoreInfo object representing
+     * 	score is incremented.
+     * 	@param score a score to be recorded in the list
+     * 	@return true if a new ScoreInfo object representing score was added to the list;
+     * false otherwise
+     */
     public boolean record(int score) {
-        boolean exists = false;
-        int positionToAdd = 0;
-        for (int i = 0; i < scoreList.size(); i++) {
-            ScoreInfo current = scoreList.get(i);
-            if (current.getScore() == score) {
-                current.increment();
-                exists = true;
-            }
-            if (current.getScore() < score) {
-                positionToAdd++;
-            }
-        }
-        if (!exists) {
-            scoreList.add(positionToAdd, new ScoreInfo(score));
-        }
-        return !exists;
+        /* to be implemented in part (a) */
+        return false;
     }
 
+    /** Records all scores in stuScores in the database, keeping the database in increasing score order
+     * 	@param stuScores an array of student test scores
+     */
     public void recordScores(int[] stuScores) {
-        for (int score: stuScores) {
-            record(score);
-        }
+        /* to be implemented in part (b) */
+    }
+
+    // Ignore these methods. Used for testing.
+    public ArrayList<ScoreInfo> getScoreList() {
+        return scoreList;
     }
 
     public String toString() {
         return scoreList.toString();
-    }
-
-    public static void main(String[] args) {
-        int[] scores = new int[33];
-        int index = 0;
-        for (int i = 0; i < 5; i++) {
-            scores[index] = 5;
-            index++;
-        }
-        for (int i = 0; i < 10; i++) {
-            scores[index] = 4;
-            index++;
-        }
-        for (int i = 0; i < 8; i++) {
-            scores[index] = 6;
-            index++;
-        }
-        for (int i = 0; i < 3; i++) {
-            scores[index] = 2;
-            index++;
-        }
-        for (int i = 0; i < 7; i++) {
-            scores[index] = 1;
-            index++;
-        }
-
-        Stats myStats = new Stats();
-        myStats.recordScores(scores);
-        System.out.println(myStats);
-        myStats.record(3);
-        System.out.println(myStats);
-
     }
 }

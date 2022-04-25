@@ -23,14 +23,14 @@ public class ArrayTester {
      */
     public static boolean hasAllValues(int[] arr1, int[] arr2) {
         for (int num1 : arr1) {
+            boolean found = false;
             for (int num2 : arr2) {
-                boolean found = false;
                 if (num1 == num2) {
                     found = true;
                 }
-                if (!found) {
-                    return false;
-                }
+            }
+            if (!found) {
+                return false;
             }
         }
         return true;

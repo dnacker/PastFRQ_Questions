@@ -22,4 +22,15 @@ public class WordPair {
     public String getSecond() {
         return second;
     }
+
+    /** IGNORE THIS CODE (for testing purposes) */
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof WordPair) {
+            WordPair wp = (WordPair)o;
+            return (wp.first.equals(first) && wp.second.equals(second)) ||
+                    (wp.first.equals(second) && wp.second.equals(first));
+        }
+        return false;
+    }
 }

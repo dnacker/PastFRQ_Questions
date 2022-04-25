@@ -10,6 +10,14 @@ public class Position {
         col = c;
     }
 
+    public boolean equals(Object o) {
+        if (o instanceof Position) {
+            Position p = (Position)o;
+            return row == p.row && col == p.col;
+        }
+        return false;
+    }
+
     public String toString() {
         return "(" + row + ", " + col + ")";
     }

@@ -24,12 +24,24 @@ public class Phrase {
     }
 
     public void replaceNthOccurrence(String str, int n, String repl) {
-        /* to be implemented in part (a) */
+        int indx = findNthOccurrence(str, n);
+		if (indx != -1) {
+			currentPhrase = currentPhrase.substring(0, indx) + repl + currentPhrase.substring(indx + str.length());
+		}
     }
 
     public int findLastOccurrence(String str) {
-        /* to be implemented in part (b) */
-        return 0;
+        int occur = 1;
+        int index = findNthOccurrence(str, occur);
+        int current = index;
+        while (current != -1) {
+            occur++;
+            current = findNthOccurrence(str, occur);
+            if (current != -1) {
+                index = current;
+            }
+        }
+        return index;
     }
 
     public String toString() {

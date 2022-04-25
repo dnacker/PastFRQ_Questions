@@ -7,7 +7,6 @@ import org.junit.Test;
  * Tests for question 2.
  */
 public class TestAPLine {
-    /* Uncomment these tests when you finish APLine
     @Test
     public void testConstructor() {
         APLine line1 = new APLine(5, 4, -17);
@@ -36,5 +35,4 @@ public class TestAPLine {
         APLine line2 = new APLine(-25, 40, 30);
         Assert.assertFalse(line2.isOnLine(5, -2));
     }
-    */
 }

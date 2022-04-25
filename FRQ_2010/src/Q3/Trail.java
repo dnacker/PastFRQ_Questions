@@ -2,7 +2,6 @@ package Q3;
 
 /**
  * Question 3.
- * TODO complete isLevelTrailSegment and isDifficult.
  */
 public class Trail {
     /** Representation of the trail. The number of markers on the trail is markers.length. */
@@ -24,8 +23,17 @@ public class Trail {
      *         false otherwise.
      */
     public boolean isLevelTrailSegment(int start, int end) {
-        //Your solution to part (a)
-        return false;
+        int min = markers[start];
+        int max = markers[start];
+        for (int index = start + 1; index <= end; index++) {
+            if (markers[index] < min) {
+                min = markers[index];
+            }
+            if (markers[index] > max) {
+                max = markers[index];
+            }
+        }
+        return max - min <= 10;
     }
 
     /**
@@ -34,7 +42,12 @@ public class Trail {
      * @return true if difficult, false otherwise.
      */
     public boolean isDifficult() {
-        //Your solution to part (b)
-        return false;
+        int count = 0;
+        for (int i = 0; i < markers.length - 1; i++) {
+            if (Math.abs(markers[i] - markers[i + 1]) >= 30) {
+                count++;
+            }
+        }
+        return count >= 3;
     }
 }

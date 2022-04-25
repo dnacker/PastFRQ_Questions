@@ -3,7 +3,7 @@ package Q4;
 import java.util.List;
 
 /**
- * Question 4
+ * Created by daackerman on 1/24/2017.
  */
 public class StringFormatter {
 
@@ -11,8 +11,11 @@ public class StringFormatter {
      *  Precondition: wordList contains at least two words consisting of letters only.
      */
     public static int totalLetters(List<String> wordList) {
-        /* to be implemented in part (a) */
-        return 0;
+        int sum = 0;
+        for (String word: wordList) {
+            sum += word.length();
+        }
+        return sum;
     }
 
     /** Returns the basic gap width when wordList is used to produce
@@ -21,8 +24,7 @@ public class StringFormatter {
      *                formattedLen is large enough for all the words and gaps.
      */
     public static int basicGapWidth(List<String> wordList, int formattedLen) {
-		/* to be implemented in part (b) */
-        return 0;
+        return (formattedLen - totalLetters(wordList)) / (wordList.size() - 1);
     }
 
 
@@ -35,8 +37,19 @@ public class StringFormatter {
      *      distribution of leftoverSpaces from left to right, as described in the question.
      */
     public static String format(List<String> wordList, int formattedLen) {
-        /* to be implemented in part (c) */
-        return null;
+        String result = wordList.get(0);
+        int leftover = leftoverSpaces(wordList, formattedLen);
+        for (int i = 1; i < wordList.size(); i++) {
+            if (leftover > 0) {
+                result += " ";
+                leftover--;
+            }
+            for (int j = 0; j < basicGapWidth(wordList, formattedLen); j++) {
+                result += " ";
+            }
+            result += wordList.get(i);
+        }
+        return result;
     }
 
     /** Returns the number of leftover spaces when wordList is used to produce

@@ -7,7 +7,13 @@ public class Successors {
      *  Precondition: intArr contains at least one row.
      */
     public static Position findPosition(int num, int[][] intArr) {
-        /* to be implemented in part (a) */
+        for (int row = 0; row < intArr.length; row++) {
+            for (int col = 0; col < intArr[0].length; col++) {
+                if (num == intArr[row][col]) {
+                    return new Position(row, col);
+                }
+            }
+        }
         return null;
     }
 
@@ -16,7 +22,12 @@ public class Successors {
      *                Each of these integers may be in an position in the 2D array.
      */
     public static Position[][] getSuccessorArray(int[][] intArr) {
-        /* to be implemented in part (b) */
-        return null;
+        Position[][] ans = new Position[intArr.length][intArr[0].length];
+        for (int row = 0; row < intArr.length; row++) {
+            for (int col = 0; col < intArr[0].length; col++) {
+                ans[row][col] = findPosition(intArr[row][col] + 1, intArr);
+            }
+        }
+        return ans;
     }
 }

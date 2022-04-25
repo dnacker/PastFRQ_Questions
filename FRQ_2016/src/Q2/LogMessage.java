@@ -9,14 +9,23 @@ public class LogMessage {
 
     /** Precondition: message is a valid log message. */
     public LogMessage(String message) {
-        /* to be implemented in part (a) */
+        machineId = message.substring(0, message.indexOf(":"));
+        description = message.substring(message.indexOf(":") + 1);
     }
 
     /** Returns true if the description in this log message properly contains keyword
      *          false otherwise.
      */
     public boolean containsWord(String keyword) {
-        /* to be implemented in part (b) */
+        if (description.equals(keyword)) {
+            return true;
+        } else if (description.indexOf(keyword + " ") == 0){
+            return true;
+        } else if (description.indexOf(" " + keyword) == description.length() - keyword.length() - 1) {
+            return true;
+        } else if (description.indexOf(" " + keyword + " ") != -1) {
+            return true;
+        }
         return false;
     }
 

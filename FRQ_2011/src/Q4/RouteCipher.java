@@ -27,7 +27,17 @@ public class RouteCipher {
      * if str.length() > numRows * numCols, trailing characters are ignored
      */
     public void fillBlock(String str) {
-        //your code for part (a)
+        int pos = 0;
+        for (int row = 0; row < numRows; row++) {
+            for (int col = 0; col < numCols; col++) {
+                if (pos < str.length()) {
+                    letterBlock[row][col] = str.substring(pos, pos + 1);
+                    pos++;
+                } else {
+                    letterBlock[row][col] = "A";
+                }
+            }
+        }
     }
 
     /**
@@ -52,8 +62,18 @@ public class RouteCipher {
      * if message is the empty string, returns the empty string
      */
     public String encryptMessage(String message) {
-        //your code for part (b)
-        return "";
+        String encrypted = "";
+        while (!message.equals("")) {
+            if (message.length() < numCols * numRows) {
+                fillBlock(message);
+                message = "";
+            } else {
+                fillBlock(message.substring(0, numCols * numRows));
+                message = message.substring(numCols * numRows);
+            }
+            encrypted += encryptBlock();
+        }
+        return encrypted;
     }
 
     public String toString() {

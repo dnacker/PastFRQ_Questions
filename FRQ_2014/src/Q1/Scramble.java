@@ -18,8 +18,27 @@ public class Scramble {
      * - letters were swapped at most once
      */
     public static String scrambleWord(String word) {
-        /* to be implemented in part (a) */
-        return null;
+        if (word.isEmpty()) {
+            return "";
+        }
+        String result = "";
+        int count = 0;
+        for (int i = 0; i < word.length() - 1; i++) {
+            String currentLetter = word.substring(i, i + 1);
+            String nextLetter = word.substring(i + 1, i + 2);
+            if (currentLetter.equals("A") && !nextLetter.equals("A")) {
+                result += nextLetter + "A";
+                i++;
+                count++;
+            } else {
+                result += currentLetter;
+            }
+            count++;
+        }
+        if (count < word.length()) {
+            result += word.substring(word.length() - 1);
+        }
+        return result;
     }
 
     /** Modifies wordList by replacing each word with its scrambled
@@ -33,9 +52,19 @@ public class Scramble {
      * before the method was called
      */
     public static void scrambleOrRemove(List<String> wordList) {
-        /* to be implemented in part (b) */
+        for (int i = 0; i < wordList.size(); i++) {
+            String word = wordList.get(i);
+            String scramble = scrambleWord(word);
+            if (word.equals(scramble)) {
+                wordList.remove(i);
+                i--;
+            } else {
+                wordList.set(i, scramble);
+            }
+        }
     }
-	/*
+
+    /*
     public static void main(String[] args) {
         String[] testers = {"TAN", "ABRACADABRA", "WHOA", "AARDVARK", "EGGS", "A", "", "APPLE"};
         String[] scrambled = new String[testers.length];
@@ -52,5 +81,5 @@ public class Scramble {
         scrambleOrRemove(testers2);
         System.out.println(testers2);
     }
-	*/
+    */
 }

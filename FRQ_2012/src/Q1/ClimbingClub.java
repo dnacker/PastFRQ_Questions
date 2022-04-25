@@ -5,7 +5,6 @@ import java.util.List;
 
 /**
  * Question 1.
- * TODO implement addClimb, addClimbAlphabetical
  */
 public class ClimbingClub {
     /** The list of climbs completed by members of the club.
@@ -24,7 +23,7 @@ public class ClimbingClub {
      * @param climbTime the number of minutes taken to complete the climb
      */
     public void addClimb(String peakName, int climbTime) {
-        //Your code for part (a)
+        climbList.add(new ClimbInfo(peakName, climbTime));
     }
 
     /** Adds a new climb with name peakName and time climbTime to the list of climbs.
@@ -33,7 +32,17 @@ public class ClimbingClub {
      * @param climbTime the number of minutes taken to complete the climb
      */
     public void addClimbAlphabetical(String peakName, int climbTime) {
-        //Your code for part (b)
+        boolean added = false;
+        for (int i = 0; i < climbList.size() && !added; i++) {
+            String currentPeakName = climbList.get(i).getName();
+            if (peakName.compareTo(currentPeakName) < 0) {
+                added = true;
+                climbList.add(i, new ClimbInfo(peakName, climbTime));
+            }
+        }
+        if (!added) {
+            climbList.add(new ClimbInfo(peakName, climbTime));
+        }
     }
 
     /** @return the number of distinct names in the list of climbs */

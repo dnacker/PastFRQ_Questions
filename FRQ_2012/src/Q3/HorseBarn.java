@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 /**
  * Question 3.
- * TODO implement findHorseSpace and consolidate methods.
  */
 public class HorseBarn {
     /** The spaces in the barn. Each array element holds a reference to the horse
@@ -23,8 +22,12 @@ public class HorseBarn {
      * -1 if no horse with the specified name is in the barn.
      */
     public int findHorseSpace(String name) {
-        //your code for part (a)
-        return 0;
+        for (int i = 0; i < spaces.length; i++) {
+            if (spaces[i] != null && spaces[i].getName().equals(name)) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     /** Consolidates the barn by moving horses so that the horses are in adjacent spaces,
@@ -32,7 +35,20 @@ public class HorseBarn {
      * Postcondition: The order of the horses is the same as before the consolidation.
      */
     public void consolidate() {
-        //your code for part (b)
+        int indexToPut = 0;
+        for (int i = 0; i < spaces.length; i++) {
+            if (spaces[i] == null) {
+                indexToPut = i;
+                boolean added = false;
+                for (int j = indexToPut + 1; !added && j < spaces.length; j++) {
+                    if (spaces[j] != null) {
+                        spaces[indexToPut] = spaces[j];
+                        spaces[j] = null;
+                        added = true;
+                    }
+                }
+            }
+        }
     }
 
     public String toString() {

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 /**
  * Question 4
- * TODO implement getIndexForFit and insertTile
  */
 public class TileGame {
     /** represents the game board; guaranteed never to be null */
@@ -26,8 +25,20 @@ public class TileGame {
      * otherwise, 0 ≤ position returned ≤ board.size()
      */
     public int getIndexForFit(NumberTile tile) {
-        /* to be implemented in part(a) */
-        return 0;
+        if (board.isEmpty() || (board.get(0).getLeft() == tile.getRight())) {
+            return 0;
+        }
+        if (board.get(board.size() - 1).getRight() == tile.getLeft()) {
+            return board.size();
+        }
+        for (int i = 0; i < board.size() - 1; i++) {
+            NumberTile left = board.get(i);
+            NumberTile right = board.get(i + 1);
+            if (left.getRight() == tile.getLeft() && right.getLeft() == tile.getRight()) {
+                return i + 1;
+            }
+        }
+        return -1;
     }
 
     /** Places tile on the game board if it fits (checking all possible tile orientations if necessary).
@@ -40,7 +51,15 @@ public class TileGame {
      * Postcondition: the order of the other tiles on the board relative to each other is not changed
      */
     public boolean insertTile(NumberTile tile) {
-        /* to be implemented in part (b) */
+        for (int i = 0; i < 4; i++) {
+            int indexToAdd = getIndexForFit(tile);
+            if (indexToAdd != -1) {
+                board.add(indexToAdd, tile);
+                return true;
+            } else {
+                tile.rotate();
+            }
+        }
         return false;
     }
 

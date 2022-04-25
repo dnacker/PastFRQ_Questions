@@ -2,7 +2,6 @@ package Q1;
 
 /**
  * Question 1
- * TODO implement getCubeTosses and getLongestRun
  */
 public class NumberCubeRunner {
     /** Returns an array of the values obtained by tossing a number cube numTosses times.
@@ -12,8 +11,11 @@ public class NumberCubeRunner {
      * @return an array of numTosses values
      */
     public static int[] getCubeTosses(NumberCube cube, int numTosses) {
-        /* to be implemented in part (a) */
-        return null;
+        int[] arr = new int[numTosses];
+        for (int i = 0; i < numTosses; i++) {
+            arr[i] = cube.toss();
+        }
+        return arr;
     }
 
     /** Returns the starting index of a longest run of two or more consecutive repeated values
@@ -24,7 +26,24 @@ public class NumberCubeRunner {
      * -1 if there is no run
      */
     public static int getLongestRun(int[] values) {
-        /* to be implemented in part (b) */
-        return 0;
+        int indexOfLongest = -1;
+        int longestRun = 0;
+        int currentPosition = 0;
+        while (currentPosition < values.length - 1) {
+            if (values[currentPosition] == values[currentPosition + 1]) {
+                int currentLongestRun = 2;
+                int currentLongestIndex = currentPosition;
+                currentPosition++;
+                while (currentPosition < values.length - 1 && values[currentPosition] == values[currentPosition + 1]) {
+                    currentLongestRun++;
+                    currentPosition++;
+                }
+                if (currentLongestRun > longestRun) {
+                    indexOfLongest = currentLongestIndex;
+                }
+            }
+            currentPosition++;
+        }
+        return indexOfLongest;
     }
 }

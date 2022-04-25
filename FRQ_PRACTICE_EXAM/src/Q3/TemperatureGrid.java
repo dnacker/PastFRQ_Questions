@@ -20,8 +20,11 @@ public class TemperatureGrid {
      * Postcondition: temps is unchanged.
      */
     public double computeTemp(int row, int col) {
-        /* to be implemented in part (a) */
-        return -1.0;
+        if (row > 0 && col > 0 && row < temps.length - 1 && col < temps[0].length - 1) {
+            return (temps[row - 1][col] + temps[row + 1][col] + temps[row][col - 1] + temps[row][col + 1]) / 4;
+        } else {
+            return temps[row][col];
+        }
     }
 
     /** Updates all values in temps and returns a boolean that indicates whether or not all the
@@ -33,8 +36,19 @@ public class TemperatureGrid {
      * corresponding call to computeTemp.
      */
     public boolean updateAllTemps(double tolerance) {
-        /* to be implemented in part (b) */
-        return false;
+        double[][] newGrid = new double[temps.length][temps[0].length];
+        boolean withinTolerance = true;
+        for (int row = 0; row < temps.length; row++) {
+            for (int col = 0; col < temps[0].length; col++) {
+                double newTemp = computeTemp(row, col);
+                if (Math.abs(newTemp - temps[row][col]) > tolerance) {
+                    withinTolerance = false;
+                }
+                newGrid[row][col] = newTemp;
+            }
+        }
+        temps = newGrid;
+        return withinTolerance;
     }
 
     // Ignore these methods. Used for testing.

@@ -27,7 +27,13 @@ public class MusicDownloads {
      * - no changes were made to downloadList.
      */
     public DownloadInfo getDownLoadInfo(String title) {
-        /* to be implemented in part (a) */
+        for (int i = 0; i < downloadList.size(); i++) {
+            DownloadInfo cur = downloadList.get(i);
+            if (cur.getTitle().equals(title)) {
+                return cur;
+            }
+        }
+        return null;
     }
 
     /** Updates downloadList with information from titles.
@@ -47,7 +53,13 @@ public class MusicDownloads {
      * the number of times its title appeared in titles.
      */
     public void updateDownloads(List<String> titles) {
-        /* to be implemented in part (b) */
+        for (String title : titles) {
+            if (getDownLoadInfo(title) == null) {
+                downloadList.add(new DownloadInfo(title));
+            } else {
+                getDownLoadInfo(title).incrementTimesDownloaded();
+            }
+        }
     }
 
     public String toString() {

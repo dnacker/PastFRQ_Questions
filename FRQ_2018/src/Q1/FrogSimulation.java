@@ -37,8 +37,13 @@ public class FrogSimulation {
      *          false otherwise.
      */
     public boolean simulate() {
-        /* to be implemented in part (a) */
-        return false;
+        int distance = 0;
+        int hops = 0;
+        while (0 <= distance && distance <= goalDistance && hops < maxHops) {
+            distance += hopDistance();
+            hops ++;
+        }
+        return goalDistance <= distance;
     }
 
     /** Runs num simulations and returns the proportion of simulations in which the frog
@@ -46,7 +51,12 @@ public class FrogSimulation {
      *  Precondition: num > 0
      */
     public double runSimulations(int num) {
-        /* to be implemented in part (b) */
-        return 0;
+        int countSuccesses = 0;
+        for (int i = 0; i < num; i++) {
+            if (simulate()) {
+                countSuccesses++;
+            }
+        }
+        return (double)countSuccesses / num;
     }
 }

@@ -15,7 +15,11 @@ public class TokenPass {
      * @param playerCount the number of players
      */
     public TokenPass(int playerCount) {
-        /* to be implemented in part (a) */
+        board = new int[playerCount];
+        for (int i = 0; i < playerCount; i++) {
+            board[i] = (int)(Math.random() * 10) + 1;
+        }
+        currentPlayer = (int)(Math.random() * playerCount);
     }
 
     /** Distributes the tokens from the current player's position one at a time to each player in
@@ -26,7 +30,22 @@ public class TokenPass {
      * Postcondition: the current player has not changed.
      */
     public void distributeCurrentPlayerTokens() {
-        /* to be implemented in part (b) */
+        int tokensToDistribute = board[currentPlayer];
+        board[currentPlayer] = 0;
+        int index;
+        if (currentPlayer == board.length - 1) {
+            index = 0;
+        } else {
+            index = currentPlayer + 1;
+        }
+        for (int i = 0; i < tokensToDistribute; i++) {
+            board[index]++;
+            if (index == board.length - 1) {
+                index = 0;
+            } else {
+                index++;
+            }
+        }
     }
 
     /** IGNORE CODE BELOW (for testing purposes) */

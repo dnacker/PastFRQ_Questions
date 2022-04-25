@@ -4,11 +4,13 @@ package Q1;
  * Question 1
  */
 public class RandomLetterChooser extends RandomStringChooser {
+    private String word;
+
     /** Constructs a random letter chooser using the given string str.
      *  Precondition: str contains only letters.
      */
     public RandomLetterChooser(String str) {
-        /* to be implemented in part (b) */
+        super(getSingleLetters(str));
     }
 
     /** Returns an array of single-letter strings.

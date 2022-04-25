@@ -1,7 +1,5 @@
 package Q4;
 
-import java.util.HashSet;
-
 /**
  * Question 4.
  */
@@ -13,8 +11,11 @@ public class ArrayTester {
      *  Postcondition: arr2D is unchanged.
      */
     public static int[] getColumn(int[][] arr2D, int c) {
-        /* to be implemented in part (a) */
-        return null;
+        int[] col = new int[arr2D.length];
+        for (int r = 0; r < arr2D.length; r++) {
+            col[r] = arr2D[r][c];
+        }
+        return col;
     }
 
     /** Returns true if and only if every value in arr1 appears in arr2.
@@ -23,14 +24,14 @@ public class ArrayTester {
      */
     public static boolean hasAllValues(int[] arr1, int[] arr2) {
         for (int num1 : arr1) {
+            boolean found = false;
             for (int num2 : arr2) {
-                boolean found = false;
                 if (num1 == num2) {
                     found = true;
                 }
-                if (!found) {
-                    return false;
-                }
+            }
+            if (!found) {
+                return false;
             }
         }
         return true;
@@ -41,7 +42,6 @@ public class ArrayTester {
      */
     public static boolean containsDuplicates(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
-            boolean dup = false;
             for (int j = i + 1; j < arr.length; j++) {
                 if (arr[i] == arr[j]) {
                     return true;
@@ -57,7 +57,15 @@ public class ArrayTester {
      *                square has at least one row.
      */
     public static boolean isLatin(int[][] square) {
-        /* to be implemented in part (b) */
-        return false;
+        if (containsDuplicates(square[0])) {
+            return false;
+        }
+        for (int i = 0; i < square.length; i++) {
+            int[] col = getColumn(square, i);
+            if (!hasAllValues(square[0], square[i]) || !hasAllValues(square[0], col)) {
+                return false;
+            }
+        }
+        return true;
     }
 }

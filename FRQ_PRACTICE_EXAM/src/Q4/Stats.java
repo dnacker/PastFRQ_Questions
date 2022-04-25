@@ -15,15 +15,31 @@ public class Stats {
      * false otherwise
      */
     public boolean record(int score) {
-        /* to be implemented in part (a) */
-        return false;
+        boolean exists = false;
+        int positionToAdd = 0;
+        for (int i = 0; i < scoreList.size(); i++) {
+            ScoreInfo current = scoreList.get(i);
+            if (current.getScore() == score) {
+                current.increment();
+                exists = true;
+            }
+            if (current.getScore() < score) {
+                positionToAdd++;
+            }
+        }
+        if (!exists) {
+            scoreList.add(positionToAdd, new ScoreInfo(score));
+        }
+        return !exists;
     }
 
     /** Records all scores in stuScores in the database, keeping the database in increasing score order
      * 	@param stuScores an array of student test scores
      */
     public void recordScores(int[] stuScores) {
-        /* to be implemented in part (b) */
+        for (int score: stuScores) {
+            record(score);
+        }
     }
 
     // Ignore these methods. Used for testing.

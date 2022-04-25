@@ -13,15 +13,28 @@ public class WordPairList {
      *  Precondition: words.length >= 2
      */
     public WordPairList(String[] words) {
-        /* to be implemented in part (a) */
+        allPairs = new ArrayList<>();
+        for (int i = 0; i < words.length; i++) {
+            String first = words[i];
+            for (int j = i + 1; j < words.length; j++) {
+                String second = words[j];
+                allPairs.add(new WordPair(first, second));
+            }
+        }
     }
 
     /** Returns the number of matches as described in part (b).
      */
     public int numMatches() {
-        /* to be implemented in part (b) */
-        return 0;
+        int count = 0;
+        for (WordPair wp: allPairs) {
+            if (wp.getFirst().equals(wp.getSecond())) {
+                count++;
+            }
+        }
+        return count;
     }
+
 
     /** IGNORE THIS CODE (for testing purposes) */
     ArrayList<WordPair> getList() {

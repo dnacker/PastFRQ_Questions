@@ -2,7 +2,6 @@ package Q3;
 
 /**
  * Question 3
- * TODO implement getChargingCost and getChargeStartTime
  */
 public class BatteryCharger {
     /** rateTable has 24 entries representing the charging costs for hours 0 through 23. */
@@ -20,8 +19,11 @@ public class BatteryCharger {
      * @return the total cost to charge the battery
      */
     public int getChargingCost(int startHour, int chargeTime) {
-
-        return 0;
+        int totalCost = 0;
+        for (int i = 0; i < chargeTime; i++) {
+            totalCost += rateTable[(startHour + i) % 24];
+        }
+        return totalCost;
     }
 
     /** Determines start time to charge the battery at the lowest cost for the given charge time.
@@ -30,7 +32,14 @@ public class BatteryCharger {
      * @return an optimal start time, with 0 ≤ returned value ≤ 23
      */
     public int getChargeStartTime(int chargeTime) {
-
-        return 0;
+        int smallest = getChargingCost(0, chargeTime);
+        int startTime = 0;
+        for (int i = 1; i < 24; i++) {
+            if (getChargingCost(i, chargeTime) < smallest) {
+                smallest = getChargingCost(i, chargeTime);
+                startTime = i;
+            }
+        }
+        return startTime;
     }
 }

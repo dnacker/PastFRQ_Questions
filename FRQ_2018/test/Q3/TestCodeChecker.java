@@ -7,7 +7,6 @@ import org.junit.Test;
  * Tests for Question 3.
  */
 public class TestCodeChecker {
-    /* Uncomment these tests when you have finished Question 3.
     @Test
     public void testConstructorThreeParams() {
         CodeWordChecker cwc = new CodeWordChecker(1, 2, "foo");
@@ -79,5 +78,4 @@ public class TestCodeChecker {
         Assert.assertTrue(sc.isValid("MyPass"));
         Assert.assertFalse(sc.isValid("Mypassport"));
     }
-     */
 }

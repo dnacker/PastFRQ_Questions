@@ -23,8 +23,16 @@ public class FuelDepot {
      * Postcondition: the state of the robot is not changed.
      */
     public int nextTankToFill(int threshold) {
-        //your code for part (a)
-        return 0;
+        int indexOfSmallest = filler.getCurrentIndex();
+        int smallest = threshold;
+        for (int i = 0; i < tanks.size(); i++) {
+            int currentLevel = tanks.get(i).getFuelLevel();
+            if (currentLevel <= smallest) {
+                indexOfSmallest = i;
+                smallest = currentLevel;
+            }
+        }
+        return indexOfSmallest;
     }
 
     /**
@@ -34,7 +42,15 @@ public class FuelDepot {
      *                 Postcondition: the current location of the robot is locIndex.
      */
     public void moveToLocation(int locIndex) {
-        //your code for part (b)
+        int numMoves = locIndex - filler.getCurrentIndex();
+        if (numMoves != 0) {
+            if (numMoves > 0 && !filler.isFacingRight()) {
+                filler.changeDirection();
+            } else if (numMoves < 0 && filler.isFacingRight()) {
+                filler.changeDirection();
+            }
+            filler.moveForward(Math.abs(numMoves));
+        }
     }
 
     public String toString() {

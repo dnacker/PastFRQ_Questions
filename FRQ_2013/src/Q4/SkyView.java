@@ -20,7 +20,18 @@ public class SkyView {
      * in the original rectangular area of sky.
      */
     public SkyView(int numRows, int numCols, double[] scanned) {
-        /* to be implemented in part (a) */
+        view = new double[numRows][numCols];
+        int index = 0;
+        for (int row = 0; row < numRows; row++) {
+            for (int col = 0; col < numCols; col++) {
+                if (row % 2 == 0) {
+                    view[row][col] = scanned[index];
+                } else {
+                    view[row][numCols - 1 - col] = scanned[index];
+                }
+                index++;
+            }
+        }
     }
 
     /** Returns the average of the values in a rectangular section of view.
@@ -34,8 +45,15 @@ public class SkyView {
      */
     public double getAverage(int startRow, int endRow,
                              int startCol, int endCol) {
-        /* to be implemented in part (b) */
-	return 0.0;
+        double sum = 0;
+        int count = 0;
+        for (int row = startRow; row <= endRow; row++) {
+            for (int col = startCol; col <= endCol; col++) {
+                sum += view[row][col];
+                count++;
+            }
+        }
+        return sum / count;
     }
 
     /** IGNORE CODE BELOW (for testing purposes) */

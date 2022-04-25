@@ -19,7 +19,21 @@ public class Crossword {
      *      - The Squares in the puzzle are labeled according to the crossword labeling rule.
      */
     public Crossword(boolean[][] blackSquares) {
-        /* to be implemented in part (b) */
+        int numRows = blackSquares.length;
+        int numCols = blackSquares[0].length;
+        puzzle = new Square[numRows][numCols];
+        int number = 1;
+        for (int row = 0; row < numRows; row++) {
+            for (int col = 0; col < numCols; col++) {
+                if (toBeLabeled(row, col, blackSquares)) {
+                    puzzle[row][col] = new Square(false, number);
+                    number++;
+                } else {
+                    puzzle[row][col] = new Square(blackSquares[row][col], 0);
+                }
+            }
+        }
+
     }
 
     /** Returns true if the square at row r, column c should be labeled with a positive number;
@@ -28,7 +42,13 @@ public class Crossword {
      *  Precondition: r and c are valid indexes in blackSquares.
      */
     public static boolean toBeLabeled(int r, int c, boolean[][] blackSquares) {
-        /* to be implemented in part (a) */
+        if (!blackSquares[r][c]) {
+            if (r == 0 || c == 0) {
+                return true;
+            } else if (blackSquares[r - 1][c] || blackSquares[r][c - 1]) {
+                return true;
+            }
+        }
         return false;
     }
 

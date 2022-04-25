@@ -38,8 +38,12 @@ public class Mountain {
      * -1 otherwise
      */
     public static int getPeakIndex(int[] array) {
-        /* to be implemented in part (a) */
-        return Integer.MAX_VALUE;
+        for (int i = 1; i < array.length - 1; i++) {
+            if (array[i - 1] < array[i] && array[i] > array[i + 1]) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     /** @param array an array of positive integer values
@@ -48,7 +52,7 @@ public class Mountain {
      * false otherwise
      */
     public static boolean isMountain(int[] array) {
-        /* to be implemented in part (b) */
-        return false;
+        int peak = getPeakIndex(array);
+        return peak != -1 && isIncreasing(array, peak) && isDecreasing(array, peak);
     }
 }

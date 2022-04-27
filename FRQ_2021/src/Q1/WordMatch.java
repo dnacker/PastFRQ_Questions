@@ -16,8 +16,13 @@ public class WordMatch
      * Precondition: 0 < guess.length() <= secret.length()
      */
     public int scoreGuess(String guess) {
-        /* to be implemented in part (a) */
-        return -1;
+        int count = 0;
+        for (int i = 0; i <= secret.length() - guess.length(); i++) {
+            if (secret.substring(i, i + guess.length()).equals(guess)) {
+                count++;
+            }
+        }
+        return count * guess.length() * guess.length();
     }
     /** Returns the better of two guesses, as determined by scoreGuess and the rules for a
      * tie-breaker that are described in part (b).
@@ -25,7 +30,17 @@ public class WordMatch
      * guess1 is not the same as guess2.
      */
     public String findBetterGuess(String guess1, String guess2) {
-        /* to be implemented in part (b) */
-        return null;
+        int score1 = scoreGuess(guess1);
+        int score2 = scoreGuess(guess2);
+        if (score1 < score2) {
+            return guess2;
+        }
+        if (score2 < score1) {
+            return guess1;
+        }
+        if (guess1.compareTo(guess2) < 0) {
+            return guess2;
+        }
+        return guess1;
     }
 }

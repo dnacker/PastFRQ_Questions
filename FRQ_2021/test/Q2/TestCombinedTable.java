@@ -8,7 +8,6 @@ public class TestCombinedTable {
     SingleTable t2 = new SingleTable(6, 70, 60);
     SingleTable t3 = new SingleTable(9, 75, 65);
 
-    /* Uncomment these tests when you are done with Question 2.
     @Test
     public void testConstructorTakesTwoSingleTables() {
         CombinedTable combinedTable = new CombinedTable(t1, t2);
@@ -39,5 +38,4 @@ public class TestCombinedTable {
             Assert.assertEquals(i <= maxSeats, combinedTable.canSeat(i));
         }
     }
-     */
 }

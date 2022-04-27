@@ -14,14 +14,25 @@ public class ClubMembers
      * Precondition: names is a non-empty array.
      */
     public void addMembers(String[] names, int gradYear) {
-        /* to be implemented in part (a) */
+        for (String name : names) {
+            memberList.add(new MemberInfo(name, gradYear, true));
+        }
     }
     /** Removes members who have graduated and returns a list of members who have graduated
      * and are in good standing, as described in part (b).
      */
     public ArrayList<MemberInfo> removeMembers(int year) {
-        /* to be implemented in part (b) */
-        return null;
+        ArrayList<MemberInfo> toReturn = new ArrayList<>();
+        for (int i = memberList.size() - 1; i >= 0; i--) {
+            MemberInfo memberInfo = memberList.get(i);
+            if (memberInfo.getGradYear() <= year) {
+                if (memberInfo.inGoodStanding()) {
+                    toReturn.add(memberInfo);
+                }
+                memberList.remove(i);
+            }
+        }
+        return toReturn;
     }
 
     // There may be instance variables, constructors, and methods that are not shown.

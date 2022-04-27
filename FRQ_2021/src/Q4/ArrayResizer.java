@@ -10,8 +10,13 @@ public class ArrayResizer
      * Postcondition: array2D is unchanged.
      */
     public static boolean isNonZeroRow(int[][] array2D, int r) {
-        /* to be implemented in part (a) */
-        return false;
+        int[] row = array2D[r];
+        for (int num : row) {
+            if (num == 0) {
+                return false;
+            }
+        }
+        return true;
     }
     /** Returns the number of rows in array2D that contain all non-zero values.
      * Postcondition: array2D is unchanged.
@@ -39,7 +44,16 @@ public class ArrayResizer
      * Postcondition: array2D is unchanged.
      */
     public static int[][] resize(int[][] array2D) {
-        /* to be implemented in part (b) */
-        return null;
+        int[][] newArray = new int[numNonZeroRows(array2D)][array2D[0].length];
+        int index = 0;
+        for (int i = 0; i < array2D.length; i++) {
+            if (isNonZeroRow(array2D, i)) {
+                for (int j = 0; j < array2D[0].length; j++) {
+                    newArray[index][j] = array2D[i][j];
+                }
+                index++;
+            }
+        }
+        return newArray;
     }
 }

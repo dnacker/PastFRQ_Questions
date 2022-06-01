@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class TestTextBook {
+    /* Uncommment these tests when you have a solution for Q2.
     @Test
     public void testConstructor() {
         TextBook textBook = new TextBook("Astronomy", 49.75, 2);
@@ -31,4 +32,5 @@ public class TestTextBook {
         Assert.assertFalse(bookOne.canSubstituteFor(bookTwo));
         Assert.assertFalse(bookTwo.canSubstituteFor(bookOne));
     }
+     */
 }

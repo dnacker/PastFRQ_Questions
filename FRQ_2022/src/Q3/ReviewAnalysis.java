@@ -16,13 +16,8 @@ public class ReviewAnalysis {
      * No element of allReviews is null.
      */
     public double getAverageRating() {
-        double total = 0;
-        for (int i = 0; i < allReviews.length; i++) {
-            total += allReviews[i].getRating();
-        }
-        return total / allReviews.length;
-//        /* to be implemented in part (a) */
-//        return Double.MAX_VALUE;
+        /* to be implemented in part (a) */
+        return Double.MAX_VALUE;
     }
     /** Returns an ArrayList of String objects containing formatted versions of
      * selected user comments, as described in part (b)
@@ -31,21 +26,8 @@ public class ReviewAnalysis {
      * Postcondition: allReviews is unchanged.
      */
     public ArrayList<String> collectComments() {
-        ArrayList<String> comments = new ArrayList<>();
-        for (int i = 0; i < allReviews.length; i++) {
-            Review review = allReviews[i];
-            String comment = review.getComment();
-            if (comment.indexOf("!") >= 0) {
-                String result = i + "-" + comment;
-                if (!result.endsWith(".") && !result.endsWith("!")) {
-                    result += ".";
-                }
-                comments.add(result);
-            }
-        }
-        return comments;
-//        /* to be implemented in part (b) */
-//        return null;
+        /* to be implemented in part (b) */
+        return null;
     }
 
     void setAllReviews(Review[] reviews) {

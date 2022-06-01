@@ -28,37 +28,8 @@ public class Game {
 
     /** Returns the score earned in the most recently played game, as described in part (a) */
     public int getScore() {
-//        /* to be implemented in part (a) */
-//        return -1;
-
-        int total = 0;
-        if (levelOne.goalReached()) {
-            total += levelOne.getPoints();
-            if (levelTwo.goalReached()) {
-                total += levelTwo.getPoints();
-                if (levelThree.goalReached()) {
-                    total += levelThree.getPoints();
-                }
-            }
-        }
-
-        /* Alternate solution
-        if (levelOne.goalReached()) {
-            total += levelOne.getPoints();
-        }
-        if (levelOne.goalReached() && levelTwo.goalReached()) {
-            total += levelTwo.getPoints();
-        }
-        if (levelOne.goalReached() && levelTwo.goalReached() && levelThree.goalReached()) {
-            total += levelThree.getPoints();
-        }
-         */
-
-        if (isBonus()) {
-            total *= 3;
-        }
-
-        return total;
+        /* to be implemented in part (a) */
+        return -1;
     }
 
     /** Simulates the play of num games and returns the highest score earned, as
@@ -66,18 +37,8 @@ public class Game {
      * Precondition: num > 0
      */
     public int playManyTimes(int num) {
-        int maxScore = 0;
-        for (int i = 0; i < num; i++) {
-            play();
-            int score = getScore();
-            if (score > maxScore) {
-                maxScore = score;
-            }
-        }
-
-        return maxScore;
-//        /* to be implemented in part (b) */
-//        return -1;
+        /* to be implemented in part (b) */
+        return -1;
     }
 
     // There may be instance variables, constructors, and methods that are not shown.
